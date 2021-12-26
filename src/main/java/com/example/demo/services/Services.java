@@ -20,7 +20,7 @@ public class Services {
         this.movieRepository = movieRepository;
     }
     
-    //al inicio de la API aparece lo siguiente
+    //Título de inicio de la API
   	public String init() {
   		return "<h1>Bienvenido a mi API de Películas<h1>";
   	};
@@ -37,7 +37,14 @@ public class Services {
     
     //Para eliminar una película
     public void deleteMovie(Integer id) {
-        movieRepository.deleteById(id);
+    	
+    	Optional <Movie> movieToBeDeleted= movieRepository.findById(id);
+    	
+    	if (!movieToBeDeleted.isEmpty()) {
+    		movieRepository.deleteById(id);
+    	} else {
+		throw new RuntimeException("Movie not found");
+    	}
     }
     
     //Para actualizar una película
@@ -53,7 +60,7 @@ public class Services {
     }
     
     //Buscar por id
-  	public Optional < Movie> findId(Integer id) {
+  	public Optional <Movie> findId(Integer id) {
   		return movieRepository.findById(id);
   	}
   		
@@ -62,7 +69,7 @@ public class Services {
   		return movieRepository.findTitle(title);
   	}
   		
-  	//Buscar por popular
+  	//Buscar por la más popular
   	public List<Movie> findPopular() {
   		return movieRepository.findPopular(PageRequest.of(0,3));
   	}

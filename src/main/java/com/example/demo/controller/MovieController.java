@@ -38,7 +38,7 @@ public class MovieController {
 	}
 	@GetMapping
 	public String Hello() {
-		return "Holaaaa";
+		return "Hola";
 	}
 	
 	//Metodo de inicio
@@ -71,25 +71,25 @@ public class MovieController {
 		return (service.updateMovie(movie, id));
 	}
 	
-	//metodo para buscar por id
+	//Método para buscar por id
 	@GetMapping("/searchId/{id}")
 	public Optional < Movie> findId(@PathVariable Integer id) {
 		return service.findId(id);
 	}
 			
-	//metodo para buscar por titulo
+	//Método para buscar por titulo
 	@GetMapping("/searchTitle/{title}")
 	public List <Movie> findTitle(@PathVariable String title ) {
 		return service.findTitle(title);
 	}
 				
-	//metodo para buscar las mas populares
+	//Método para buscar las mas populares
 	@GetMapping("/searchPopular/{title}")
 		public List <Movie> findPopular( ) {
 			return service.findPopular();
 	}
 				
-	//metodo para buscar las peliculas por clasificación
+	//Metodo para buscar las peliculas por clasificación
 	@GetMapping("/searchClassified/{classified}")
 	public List <Movie> findClass( @PathVariable String classified) {
 		return service.findClass(classified);
