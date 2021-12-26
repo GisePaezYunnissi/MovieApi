@@ -36,6 +36,10 @@ public class MovieController {
 	public Services getService() {
 		return service;
 	}
+	@GetMapping
+	public String Hello() {
+		return "Holaaaa";
+	}
 	
 	//Metodo de inicio
 	@GetMapping("/inicio")

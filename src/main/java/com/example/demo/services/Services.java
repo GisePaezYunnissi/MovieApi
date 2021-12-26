@@ -30,7 +30,6 @@ public class Services {
         return movieRepository.findAll();
     }
 
-    //public List <Movie> getById(Integer id) {return movieRepository.findAllById(id);}
     //Para agregar una película a la BD
     public Movie createMovie(Movie movie) {
         return movieRepository.save(movie);

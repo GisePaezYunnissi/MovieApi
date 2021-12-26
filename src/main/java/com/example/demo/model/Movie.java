@@ -7,16 +7,17 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
+//Para manejar la base de datos
+@SuppressWarnings("serial")
 @Entity
-@Table(name = "movies")
+
 public class Movie implements Serializable {
 
-private static final long serialVersionUID = -9186258928962757759L;
-
 	@Id
+	//Para que se vaya incrementando el id automáticamente
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	//Como es el id no puede ser nulo ni actualizarse
 	@Column(nullable = false, updatable = false)
     private Integer id;
     private String  title;
@@ -28,6 +29,10 @@ private static final long serialVersionUID = -9186258928962757759L;
     private String  classified;
     private Integer rate;
     private Double  duration;
+    
+    public Movie() {
+    	
+    }
     
 	public Movie (Integer id,String title,Integer year, String director,String gender,
 			     String plot,String poster,String classified,Integer rate,Double duration) {
